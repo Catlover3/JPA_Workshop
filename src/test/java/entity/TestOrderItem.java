@@ -21,7 +21,7 @@ import Entity.ProductOrder;
 	    private ProductOrder testProductOrder;
 	    private Costumer testCostumer;
 	    private LocalDate localDate;
-	    private List<OrderItem> orderitems;
+	    private List<OrderItem> orderitemsListTest;
 
 	    @BeforeEach
 	    void setUp() {
@@ -29,13 +29,18 @@ import Entity.ProductOrder;
 	        testProduct = new Product("Pear", 5);
 	        testCostumer = new Costumer("Anders", "Andersson", "Anders.andersson@mail.se");
 	        testOrderItem = new OrderItem(10, testProduct,testProductOrder);
-	        orderitems.add(testOrderItem);
-	        testProductOrder = new ProductOrder(localDate, orderitems, testCostumer);
+	        orderitemsListTest.add(testOrderItem);
+	        testProductOrder = new ProductOrder(localDate, orderitemsListTest, testCostumer);
 	    }
 
 	    @Test
 	    public void testObject_successfully_created(){
 	        assertEquals(0, testOrderItem.getQuantity());
+	    }
+	    
+	    @Test
+	    public void doesListContainObject() {
+	    	orderitemsListTest.contains(testOrderItem);
 	    }
 
 	    @Test
