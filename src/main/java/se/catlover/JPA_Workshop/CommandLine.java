@@ -1,6 +1,8 @@
-package data;
+package se.catlover.JPA_Workshop;
 
 import org.springframework.boot.CommandLineRunner;
+
+import se.catlover.JPA_Workshop.data.ProductRepo;
 
 public class CommandLine implements CommandLineRunner {
 	

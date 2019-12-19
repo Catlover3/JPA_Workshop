@@ -1,4 +1,4 @@
-package Entity;
+package se.catlover.JPA_Workshop.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class Costumer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int UserId;
+	private int userId;
 	private String firstName;
 	private String lastName;
 	
@@ -20,7 +20,7 @@ public class Costumer {
 	
 	public Costumer(int id, String firstName, String lastName, String email) {
 		super();
-		this.UserId = id;
+		this.userId = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -33,10 +33,10 @@ public class Costumer {
 		this.email = email;
 	}
 	public int getId() {
-		return UserId;
+		return userId;
 	}
 	public void setId(int id) {
-		this.UserId = id;
+		this.userId = id;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -61,7 +61,7 @@ public class Costumer {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + UserId;
+		result = prime * result + userId;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
@@ -77,7 +77,7 @@ public class Costumer {
 		if (getClass() != obj.getClass())
 			return false;
 		Costumer other = (Costumer) obj;
-		if (UserId != other.UserId)
+		if (userId != other.userId)
 			return false;
 		if (email == null) {
 			if (other.email != null)
@@ -99,7 +99,7 @@ public class Costumer {
 
 	@Override
 	public String toString() {
-		return "Costumer [UserId=" + UserId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+		return "Costumer [UserId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ "]";
 	}
 	

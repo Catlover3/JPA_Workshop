@@ -1,8 +1,8 @@
-package data;
+package se.catlover.JPA_Workshop.data;
 
 import org.springframework.data.repository.CrudRepository;
 
-import Entity.Costumer;
+import se.catlover.JPA_Workshop.entity.Costumer;
 
 public interface CostumerRepo extends CrudRepository<Costumer, Integer> {
 	

@@ -1,4 +1,4 @@
-package Entity;
+package se.catlover.JPA_Workshop.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +10,8 @@ import javax.persistence.Id;
 public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	
 	private int productId;
+	
 	private String name;
 	private int price;
 

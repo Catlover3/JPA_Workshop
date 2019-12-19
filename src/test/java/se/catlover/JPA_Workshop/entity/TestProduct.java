@@ -1,4 +1,4 @@
-package entity;
+package se.catlover.JPA_Workshop.entity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import Entity.Product;
+import se.catlover.JPA_Workshop.entity.Product;
 
 public class TestProduct {
 	

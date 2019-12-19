@@ -1,10 +1,13 @@
-package Entity;
+package se.catlover.JPA_Workshop.entity;
 
 import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,35 +24,45 @@ public class ProductOrder {
 	@Column(name = "CreationDate")
 	private LocalDate orderDateTime;
 	
-	@OneToMany(orphanRemoval= true)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval= true)
 	private List <OrderItem> orderItems;
 	
-	@ManyToOne
-	private Costumer Customer;
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Costumer customer;
 	
-	
-	public ProductOrder(int productOrderId, LocalDate orderDateTime, List<OrderItem> orderItems, Costumer customer) {
-		super();
-		this.productOrderId = productOrderId;
-		this.orderDateTime = orderDateTime;
-		this.orderItems = orderItems;
-		Customer = customer;
-	}
+//	public ProductOrder(int productOrderId, LocalDate orderDateTime, List<OrderItem> orderItems, Costumer customer) {
+//		super();
+//		this.productOrderId = productOrderId;
+//		this.orderDateTime = orderDateTime;
+//		this.orderItems = orderItems;
+//		this.customer = customer;
+//	}
 	
 	public ProductOrder(LocalDate orderDateTime, List<OrderItem> orderItems, Costumer customer) {
 		super();
 		this.orderDateTime = orderDateTime;
 		this.orderItems = orderItems;
-		Customer = customer;
+		this.customer = customer;
 	}
 
+	public double calculateTotalPrice() {
+		double totalSum = 0;
+				
+		for (OrderItem item : orderItems ) {
+			totalSum += item.calculatePrice();
+		 }
+		
+		return totalSum;
+	}
+
+	
 	
 	public void removeLastOrderItem() {
 		orderItems.remove(orderItems.size()- 1); 
 	}
 	
     public void removeOrderItem(OrderItem orderItem) {
-				orderItems.remove(orderItem);
+		orderItems.remove(orderItem);
     }
     
     public void addOrderItem(OrderItem orderItem) {
@@ -88,12 +101,12 @@ public class ProductOrder {
 
 
 	public Costumer getCustomer() {
-		return Customer;
+		return customer;
 	}
 
 
 	public void setCustomer(Costumer customer) {
-		Customer = customer;
+		customer = customer;
 	}
     
 

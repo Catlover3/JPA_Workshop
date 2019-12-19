@@ -1,8 +1,8 @@
-package data;
+package se.catlover.JPA_Workshop.data;
 
 import org.springframework.data.repository.CrudRepository;
 
-import Entity.Product;
+import se.catlover.JPA_Workshop.entity.Product;
 
 public interface ProductRepo extends CrudRepository <Product, Integer>{
 	

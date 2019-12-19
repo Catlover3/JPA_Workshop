@@ -1,4 +1,4 @@
-package Entity;
+package se.catlover.JPA_Workshop.entity;
 
 public class User {
 	private int id;

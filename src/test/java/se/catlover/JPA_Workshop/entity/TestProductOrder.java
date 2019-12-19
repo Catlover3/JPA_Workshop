@@ -1,4 +1,6 @@
-package entity;
+package se.catlover.JPA_Workshop.entity;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -9,12 +11,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.Assert;
 
-import Entity.Costumer;
-// TODO: Use list.contains kombinerat med assertTrue för att testa ifall listan hämtar rätt data
-import Entity.OrderItem;
-import Entity.Product;
-import Entity.ProductOrder;
-import data.ProductOrderRepo;
+import se.catlover.JPA_Workshop.data.ProductOrderRepo;
+import se.catlover.JPA_Workshop.entity.Costumer;
+import se.catlover.JPA_Workshop.entity.OrderItem;
+import se.catlover.JPA_Workshop.entity.Product;
+import se.catlover.JPA_Workshop.entity.ProductOrder;
 
 public class TestProductOrder {
 	
@@ -36,18 +37,13 @@ public class TestProductOrder {
         orderItemsListTest.add(orderItemTest);
         productOrderTest = new ProductOrder(localDateTest, orderItemsListTest, costumerTest);
         productTest = new Product("Pear", 5);
+
         
     }
 
     @Test
     public void testLists(){
-
-    
-    	
-//	    assertTrue(orderItemsListTest.contains(orderItemTest))
-//		List <ProductOrder> findByProductIdIn(List<OrderItem> orderItems, int id);
-//		List <ProductOrder> findByProductName(String name);
-//		List <ProductOrder> findByCostumerId(int id);
+	    assertTrue(orderItemsListTest.contains(orderItemTest));
 	
     }
 	

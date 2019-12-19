@@ -1,4 +1,4 @@
-package Entity;
+package se.catlover.JPA_Workshop.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -36,13 +36,13 @@ public class OrderItem {
 	
 	
 	
-	public OrderItem(int id, int quantity, Product product, ProductOrder productOrder) {
-		super();
-		this.orderItemId = id;
-		this.quantity = quantity;
-		this.product = product;
-		this.productOrder = productOrder;
-	}
+//	public OrderItem(int id, int quantity, Product product, ProductOrder productOrder) {
+//		super();
+//		this.orderItemId = id;
+//		this.quantity = quantity;
+//		this.product = product;
+//		this.productOrder = productOrder;
+//	}
 	
 	public OrderItem(int quantity, Product product, ProductOrder productOrder) {
 		super();
@@ -51,8 +51,8 @@ public class OrderItem {
 		this.productOrder = productOrder;
 	}
 	
-	public int calculateTotalPrice(Product product) {
-		int totalPrice = product.getPrice() * this.quantity;
+	public double calculatePrice() {
+		double totalPrice = this.product.getPrice() * this.quantity;
 		return totalPrice;
 	}
 	
