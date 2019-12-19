@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 	import org.junit.jupiter.api.Test;
 
 import javassist.expr.NewArray;
-import se.catlover.JPA_Workshop.entity.Costumer;
+import se.catlover.JPA_Workshop.entity.Customer;
 import se.catlover.JPA_Workshop.entity.OrderItem;
 import se.catlover.JPA_Workshop.entity.Product;
 import se.catlover.JPA_Workshop.entity.ProductOrder;
@@ -23,7 +23,7 @@ import se.catlover.JPA_Workshop.entity.ProductOrder;
 	    private OrderItem orderItemTest;
 	    private OrderItem orderItemTest2;
 	    private ProductOrder productOrderTest;
-	    private Costumer costumerTest;
+	    private Customer costumerTest;
 	    private LocalDate localDate;
 	    private List<OrderItem> orderitemsListTest = new ArrayList<OrderItem>();
 
@@ -32,7 +32,7 @@ import se.catlover.JPA_Workshop.entity.ProductOrder;
 	    	localDate = LocalDate.parse("2019-12-19");
 	        productTest = new Product("Pear", 5);
 	        productTest2 = new Product("Apple", 10);
-	        costumerTest = new Costumer("Anders", "Andersson", "Anders.andersson@mail.se");
+	        costumerTest = new Customer("Anders", "Andersson", "Anders.andersson@mail.se");
 	        
 	       
 	        orderItemTest = new OrderItem(2, productTest, productOrderTest);

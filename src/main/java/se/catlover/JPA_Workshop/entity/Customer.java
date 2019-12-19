@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Costumer {
+public class Customer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int userId;
@@ -18,7 +18,7 @@ public class Costumer {
 	private String email;
 	
 	
-	public Costumer(int id, String firstName, String lastName, String email) {
+	public Customer(int id, String firstName, String lastName, String email) {
 		super();
 		this.userId = id;
 		this.firstName = firstName;
@@ -26,7 +26,7 @@ public class Costumer {
 		this.email = email;
 	}
 	
-	public Costumer(String firstName, String lastName, String email) {
+	public Customer(String firstName, String lastName, String email) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -76,7 +76,7 @@ public class Costumer {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Costumer other = (Costumer) obj;
+		Customer other = (Customer) obj;
 		if (userId != other.userId)
 			return false;
 		if (email == null) {
@@ -99,7 +99,7 @@ public class Costumer {
 
 	@Override
 	public String toString() {
-		return "Costumer [UserId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+		return "Customer [UserId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ "]";
 	}
 	

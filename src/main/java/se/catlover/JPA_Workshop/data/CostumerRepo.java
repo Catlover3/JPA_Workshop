@@ -2,10 +2,10 @@ package se.catlover.JPA_Workshop.data;
 
 import org.springframework.data.repository.CrudRepository;
 
-import se.catlover.JPA_Workshop.entity.Costumer;
+import se.catlover.JPA_Workshop.entity.Customer;
 
-public interface CostumerRepo extends CrudRepository<Costumer, Integer> {
+public interface CostumerRepo extends CrudRepository<Customer, Integer> {
 	
-	public Costumer findByEmailContaining(String email);
+	public Customer findByEmailContaining(String email);
 
 }

@@ -28,9 +28,9 @@ public class ProductOrder {
 	private List <OrderItem> orderItems;
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private Costumer customer;
+	private Customer customer;
 	
-//	public ProductOrder(int productOrderId, LocalDate orderDateTime, List<OrderItem> orderItems, Costumer customer) {
+//	public ProductOrder(int productOrderId, LocalDate orderDateTime, List<OrderItem> orderItems, Customer customer) {
 //		super();
 //		this.productOrderId = productOrderId;
 //		this.orderDateTime = orderDateTime;
@@ -38,7 +38,7 @@ public class ProductOrder {
 //		this.customer = customer;
 //	}
 	
-	public ProductOrder(LocalDate orderDateTime, List<OrderItem> orderItems, Costumer customer) {
+	public ProductOrder(LocalDate orderDateTime, List<OrderItem> orderItems, Customer customer) {
 		super();
 		this.orderDateTime = orderDateTime;
 		this.orderItems = orderItems;
@@ -100,12 +100,12 @@ public class ProductOrder {
 	}
 
 
-	public Costumer getCustomer() {
+	public Customer getCustomer() {
 		return customer;
 	}
 
 
-	public void setCustomer(Costumer customer) {
+	public void setCustomer(Customer customer) {
 		customer = customer;
 	}
     
