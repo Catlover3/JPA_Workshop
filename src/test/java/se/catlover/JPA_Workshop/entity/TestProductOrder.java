@@ -3,6 +3,7 @@ package se.catlover.JPA_Workshop.entity;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.constraints.AssertTrue;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.Assert;
 
+import javassist.expr.NewArray;
 import se.catlover.JPA_Workshop.data.ProductOrderRepo;
 import se.catlover.JPA_Workshop.entity.Customer;
 import se.catlover.JPA_Workshop.entity.OrderItem;
@@ -26,7 +28,7 @@ public class TestProductOrder {
     private OrderItem orderItemTest;
     private Customer costumerTest;
     private LocalDate localDateTest;
-    private List<OrderItem> orderItemsListTest;
+    private List<OrderItem> orderItemsListTest = new ArrayList<OrderItem>();
 	
     @BeforeEach
 	    void setUp() {

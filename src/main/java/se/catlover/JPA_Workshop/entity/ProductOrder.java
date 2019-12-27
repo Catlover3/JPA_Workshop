@@ -1,5 +1,9 @@
 package se.catlover.JPA_Workshop.entity;
 
+/*
+ * TODO: Add if statement to arraylist.add, first check if object really exists in list and give illegalargumentexception if or if not
+ * also check if arraylists is not null. If it is null add with new
+ */
 import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.List;

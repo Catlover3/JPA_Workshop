@@ -1,8 +1,10 @@
 package se.catlover.JPA_Workshop;
 	/*
-	Varför har man collections och databaser samtidigt, borde man inte använda det ena eller det andra?
+	
 	Uppgiften "Add functionality to find ProductOrders by DATE. Refactoring may be
 needed." Gör man sorteringen via SQL queryn eller sorterar man listan efteråt i programmet?
+
+	Kolla igenom simons bilar eller om det var eriks 
 	*/
 
 import org.springframework.boot.SpringApplication;

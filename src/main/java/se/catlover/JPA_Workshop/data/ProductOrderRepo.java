@@ -1,5 +1,7 @@
 package se.catlover.JPA_Workshop.data;
 
+
+
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;

@@ -30,8 +30,8 @@ import se.catlover.JPA_Workshop.entity.ProductOrder;
 	   @BeforeEach
 	    void setUp() {
 	    	localDate = LocalDate.parse("2019-12-19");
-	        productTest = new Product("Pear", 5);
-	        productTest2 = new Product("Apple", 10);
+	        productTest = new Product("Pear", 7);
+	        productTest2 = new Product("Apple", 12);
 	        costumerTest = new Customer("Anders", "Andersson", "Anders.andersson@mail.se");
 	        
 	       
@@ -46,7 +46,8 @@ import se.catlover.JPA_Workshop.entity.ProductOrder;
 	    }
 	    @Test
 	    public void calculatePriceTest() {
-	    	assertEquals(30, orderItemTest.calculatePrice()); 
+	    	assertEquals(14, orderItemTest.calculatePrice());
+	    	assertEquals(24, orderItemTest2.calculatePrice());
 	    }
 	    
 	    @Test
