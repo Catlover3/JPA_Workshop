@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.util.Objects;
 
 @Entity
 public class OrderItem {
@@ -50,7 +51,12 @@ public class OrderItem {
 		this.product = product;
 		this.productOrder = productOrder;
 	}
-	
+
+	public OrderItem(int quantity, Product product) {
+		this.quantity = quantity;
+		this.product = product;
+	}
+
 	public double calculatePrice() {
 		double totalPrice = this.product.getPrice() * this.quantity;
 		return totalPrice;
@@ -69,7 +75,7 @@ public class OrderItem {
 		this.quantity = quantity;
 	}
 
-	public Product getProduct() {
+	public Product getProduct(Product product) {
 		return product;
 	}
 	public void setProduct(Product product) {
@@ -82,4 +88,30 @@ public class OrderItem {
 		this.productOrder = productOrder;
 	}
 
-}
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		OrderItem orderItem = (OrderItem) o;
+		return orderItemId == orderItem.orderItemId &&
+				quantity == orderItem.quantity &&
+				Objects.equals(product, orderItem.product) &&
+				Objects.equals(productOrder, orderItem.productOrder);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(orderItemId, quantity, product, productOrder);
+	}
+
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("OrderItem{");
+		sb.append("orderItemId=").append(orderItemId);
+		sb.append(", quantity=").append(quantity);
+		sb.append(", product=").append(product);
+		sb.append(", productOrder=").append(productOrder);
+		sb.append('}');
+		return sb.toString();
+	}
+} //End of class

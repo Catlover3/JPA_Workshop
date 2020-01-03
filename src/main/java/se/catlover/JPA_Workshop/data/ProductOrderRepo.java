@@ -3,6 +3,7 @@ package se.catlover.JPA_Workshop.data;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -18,7 +19,7 @@ public interface ProductOrderRepo extends CrudRepository<ProductOrder, Integer> 
 	@Query(value = "SELECT * from ProductOrder WHERE id = ?1 ORDER BY CreationDate DESC", nativeQuery = true)
 	List<ProductOrder> listAllProductOrdersByCostumerIdSortedByDate(int id);
 
-	List<ProductOrder> findByOrderItemsProductProductId(int id);
+	List<ProductOrder> findByOrderItems_Product_ProductId(int id);
 	
 	List<ProductOrder> findByOrderItemsProductNameIgnoreCase(String name);
 	

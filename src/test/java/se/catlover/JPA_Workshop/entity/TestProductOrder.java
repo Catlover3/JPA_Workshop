@@ -1,5 +1,6 @@
 package se.catlover.JPA_Workshop.entity;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
@@ -32,24 +33,39 @@ public class TestProductOrder {
 	
     @BeforeEach
 	    void setUp() {
-    	localDateTest = LocalDate.parse("2019-11-01");
+    	//localDateTest = LocalDate.parse("2019-11-01"); annat sätt att lägga till datumet
+        //Exemplet nedanför känns bättre
+        localDateTest.of(2019,12,19);
     	productTest = new Product("Pear", 5);
     	costumerTest = new Customer("Anders", "Andersson", "Anders.andersson@mail.se");
     	orderItemTest = new OrderItem(10, productTest,productOrderTest);
         orderItemsListTest.add(orderItemTest);
         productOrderTest = new ProductOrder(localDateTest, orderItemsListTest, costumerTest);
-        productTest = new Product("Pear", 5);
+
 
         
     }
 
     @Test
-    public void testLists(){
+    public void OrderItemsListTest_contains_right_orderitem(){
 	    assertTrue(orderItemsListTest.contains(orderItemTest));
 	
     }
-	
-	
+
+    @Test
+    public void get_and_set_orderDateTime(){
+        LocalDate localDateTest2 = null;
+        localDateTest2.of(2019,12,19);
+
+        productOrderTest.setOrderDateTime(localDateTest2);
+        assertEquals(localDateTest, productOrderTest.getOrderDateTime());
+    }
+
+    @Test
+    public void calcTotalPrice(){
+        assertEquals(50, productOrderTest.calculateTotalPrice() );
+    }
+
 	
 	
 }

@@ -25,7 +25,7 @@ import se.catlover.JPA_Workshop.entity.ProductOrder;
 	    private ProductOrder productOrderTest;
 	    private Customer costumerTest;
 	    private LocalDate localDate;
-	    private List<OrderItem> orderitemsListTest = new ArrayList<OrderItem>();
+	    List<OrderItem> orderitemsListTest = new ArrayList<>();
 
 	   @BeforeEach
 	    void setUp() {
@@ -35,12 +35,12 @@ import se.catlover.JPA_Workshop.entity.ProductOrder;
 	        costumerTest = new Customer("Anders", "Andersson", "Anders.andersson@mail.se");
 	        
 	       
-	        orderItemTest = new OrderItem(2, productTest, productOrderTest);
-	        orderItemTest2 = new OrderItem(2, productTest2,productOrderTest);
+	        orderItemTest = new OrderItem(2, productTest);
+	        orderItemTest2 = new OrderItem(2, productTest2);
 	        orderitemsListTest.add(orderItemTest);
 	        orderitemsListTest.add(orderItemTest2);
 	        productOrderTest = new ProductOrder(localDate, orderitemsListTest, costumerTest);
-	        
+
 	        //productOrderTest.addOrderItem(orderItemTest);
 	        //productOrderTest.addOrderItem(orderItemTest2);
 	    }
@@ -52,25 +52,40 @@ import se.catlover.JPA_Workshop.entity.ProductOrder;
 	    
 	    @Test
 	    public void testObject_successfully_created(){
-	        assertEquals(2, orderItemTest.getQuantity());
+	   	assertEquals(2, orderItemTest.getQuantity());
 	    }
+
+		@Test
+		public void set_and_get_product(){
+			orderItemTest.setProduct(productTest2);
+			assertEquals(productTest2, orderItemTest.getProduct(productTest2));
+			assertEquals(2, orderItemTest.getQuantity());
+		}
 
 	    @Test
 	    public void doesListContainObject() {
-	    	orderitemsListTest.contains(orderItemTest);
+	   	orderitemsListTest.contains(orderItemTest);
 	    }
+
 
 	    @Test
 	    public void copyOf_testObject_equals_is_true(){
-	    	OrderItem copy = new OrderItem(2, productTest,productOrderTest);
+			OrderItem copy = new OrderItem(2, productTest);
 	        assertTrue(copy.equals(orderItemTest));
-	        assertEquals(copy.hashCode(), orderItemTest.hashCode());
 	    }
+
+		@Test
+		public void copyOf_testObject_hashcode_is_true(){
+			OrderItem copy = new OrderItem(2, productTest);
+			assertEquals(copy.hashCode(), orderItemTest.hashCode());
+		}
 
 	    @Test
 	    public void toString_contains_correct_information(){
 	        String toString = orderItemTest.toString();
-	        assertTrue(toString.contains("10"));
+	        assertTrue(toString.contains("2"));
+			assertTrue(toString.contains("Pear"));
+			assertTrue(toString.contains("7"));
 	    }
 	    
 	}//End of class
